@@ -180,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: f8a586cbb6c69604b85f80337602ca53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -296,12 +296,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 79f8ce7b1261d324cac672f0a8006a1c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!19719996 &73792526
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -1333,7 +1333,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1651661932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1374,6 +1374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 7
+  slideSpeed: 1
 --- !u!1 &1918839229
 GameObject:
   m_ObjectHideFlags: 0

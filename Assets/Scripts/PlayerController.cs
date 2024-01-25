@@ -49,6 +49,12 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        // Salto en pared
+        if (Input.GetButtonDown("Jump") && _onWall == true)
+        {
+            Jump();
+        }
         
     }
 
@@ -86,6 +92,8 @@ public class PlayerController : MonoBehaviour
         _isGrounded = false; 
     }
 
+    
+
     //Revisa las collisiones del personaje
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -97,6 +105,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer ==7)
         {
             _onWall = true;
+            _rigidbody.gravityScale = .2f;
         }
     }
 
@@ -105,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == 7) 
         {
             _onWall = false;
+            _rigidbody.gravityScale = 1f;
         }
     }
 }
