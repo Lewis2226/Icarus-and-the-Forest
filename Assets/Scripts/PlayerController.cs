@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     //Varaibles
     public float speed = 3f;
     public float jumpForce = 3f;
+    public float slideSpeed = 1f;
 
     //Referencias
     private Rigidbody2D _rigidbody;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        
     }
 
     private void FixedUpdate()
@@ -62,7 +64,9 @@ public class PlayerController : MonoBehaviour
         //Comprobar las animaciones
         _animator.SetBool("Idle", _movement == Vector2.zero);
         _animator.SetBool("IsGrounded", _isGrounded);
+        _animator.SetBool("OnWall", _onWall);
         _animator.SetFloat("VerticalVelocity", _rigidbody.velocity.y);
+        
 
     }
 
@@ -88,6 +92,19 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer ==6) 
         {
           _isGrounded = true;
+        }
+
+        if (collision.gameObject.layer ==7)
+        {
+            _onWall = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 7) 
+        {
+            _onWall = false;
         }
     }
 }
