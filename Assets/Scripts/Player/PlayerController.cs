@@ -6,8 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     //Varaibles
     public float speed = 3f;
-    public float jumpForce = 3f;
+    public float jumpForce = 4f;
     public float slideSpeed = 1f;
+    public float dashSpeed = 2f;
 
     //Referencias
     private Rigidbody2D _rigidbody;
@@ -27,12 +28,12 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    
+
     void Update()
     {
         //Registar el Movimiento 
         float horizontalInput = Input.GetAxisRaw("Horizontal");
-        _movement = new Vector2 (horizontalInput, 0);
+        _movement = new Vector2(horizontalInput, 0);
 
         //Hacer que el personaje gire
         if (horizontalInput < 0f && _facingRight == true)
@@ -53,9 +54,17 @@ public class PlayerController : MonoBehaviour
         // Salto en pared
         if (Input.GetButtonDown("Jump") && _onWall == true)
         {
-            Jump();
+            WallJump();
         }
-        
+
+        //Dash
+        if (Input.GetButtonDown("Fire1")) 
+        {
+          Dash();
+            Debug.Log("Esto funciona");
+        }
+
+        //Float falling 
     }
 
     private void FixedUpdate()
@@ -92,7 +101,19 @@ public class PlayerController : MonoBehaviour
         _isGrounded = false; 
     }
 
-    
+    //Salto en Pared
+    private void WallJump()
+    {
+        _rigidbody.velocity = new Vector2 (jumpForce, _rigidbody.velocity.y);
+        _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        _onWall = false;
+    }
+
+    //Dash
+    private void Dash()
+    {
+        _rigidbody.AddForce(Vector2.left * dashSpeed, ForceMode2D.Impulse);
+    }
 
     //Revisa las collisiones del personaje
     private void OnCollisionEnter2D(Collision2D collision)

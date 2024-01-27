@@ -1375,6 +1375,7 @@ MonoBehaviour:
   speed: 3
   jumpForce: 7
   slideSpeed: 1
+  dashSpeed: 20
 --- !u!1 &1918839229
 GameObject:
   m_ObjectHideFlags: 0
