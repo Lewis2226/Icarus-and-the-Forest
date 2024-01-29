@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     //Variables doble salto
     private bool dobleJump;
+    
 
     //Variables salto cargado 
     private float jumpTimerCounter;
@@ -34,13 +35,13 @@ public class PlayerController : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCouter;
     private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(8f, 8f);
+    private Vector2 wallJumpingPower = new Vector2(6f, 8f);
 
 
     //Variables dash
     private bool canDash = true;
     private bool isDashing;
-    private float dashPower = 100f;
+    private float dashPower = 15f;
     private float dashTime = 1f;
     private float dashingCooldown = 1f;
 
@@ -92,6 +93,10 @@ public class PlayerController : MonoBehaviour
             Jump();
             isJumping = true;
             jumpTimerCounter = jumptime;
+            if (!dobleJump) 
+            {
+                _animator.SetTrigger("Double Jump");
+            }
         }
         //Salto Cargado 
         if (Input.GetButton("Jump") && isJumping == true)
@@ -133,6 +138,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash) 
         {
            StartCoroutine(Dash());
+           
         }
 
         //caida con planeo
@@ -163,7 +169,8 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("IsGrounded", _isGrounded);
         _animator.SetBool("OnWall", _onWall);
         _animator.SetFloat("VerticalVelocity", _rigidbody.velocity.y);
-        
+        _animator.SetBool("Dash", isDashing);
+
 
     }
 
@@ -247,8 +254,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         trailRenderer.emitting = false;
         _rigidbody.gravityScale = orginalGravity;
-        isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
+        isDashing = false;
         canDash = true; 
     }
  
