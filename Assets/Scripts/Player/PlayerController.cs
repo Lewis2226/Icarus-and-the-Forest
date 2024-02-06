@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
 
 
     //Variables doble salto
-    private bool dobleJump;
+    public bool dobleJump;
+    public int JumpNum;
     
 
     //Variables salto cargado 
@@ -81,23 +82,26 @@ public class PlayerController : MonoBehaviour
         
         if (_isGrounded)
         {
-            dobleJump = false;
+            
+            JumpNum = 0;
         }
-        else
-        {
-            dobleJump = true;
-        }
+        
         //Salto
-        if (Input.GetButtonDown("Jump") && _isGrounded == true || Input.GetButtonDown("Jump") && dobleJump)
+        if (Input.GetButtonDown("Jump") && _isGrounded == true)
         {
             Jump();
             isJumping = true;
             jumpTimerCounter = jumptime;
-            if (!dobleJump) 
-            {
-                _animator.SetTrigger("Double Jump");
-            }
+            JumpNum = 1;
+            
+           
         }
+        //Doble salto
+        if (Input.GetButtonDown("Jump") && JumpNum < 2)
+        {
+            Jump();
+        }
+
         //Salto Cargado 
         if (Input.GetButton("Jump") && isJumping == true)
         {
