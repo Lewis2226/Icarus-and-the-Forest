@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     //Variables doble salto
     public bool dobleJump;
-    public int JumpNum;
+    
     
 
     //Variables salto cargado 
@@ -79,28 +79,33 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         _movement = new Vector2(horizontalInput, 0);
 
-        
         if (_isGrounded)
         {
-            
-            JumpNum = 0;
+            dobleJump = false;
         }
+       
         
         //Salto
-        if (Input.GetButtonDown("Jump") && _isGrounded == true)
+        if (Input.GetButtonDown("Jump"))
         {
-            Jump();
-            isJumping = true;
-            jumpTimerCounter = jumptime;
-            JumpNum = 1;
+            if (_isGrounded)
+            {
+                Jump();
+                isJumping = true;
+                jumpTimerCounter = jumptime;
+            }
+            else if (!dobleJump)
+            {
+                dobleJump = true; 
+                Jump();
+            }
+              
+            
+            
             
            
         }
-        //Doble salto
-        if (Input.GetButtonDown("Jump") && JumpNum < 2)
-        {
-            Jump();
-        }
+        
 
         //Salto Cargado 
         if (Input.GetButton("Jump") && isJumping == true)
@@ -174,6 +179,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("OnWall", _onWall);
         _animator.SetFloat("VerticalVelocity", _rigidbody.velocity.y);
         _animator.SetBool("Dash", isDashing);
+        _animator.SetBool("DoubleJump", dobleJump);
 
 
     }
@@ -192,7 +198,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody.velocity = new Vector2 (_rigidbody.velocity.x,jumpForce);
         _isGrounded = false;
-        dobleJump = false;
+       
     }
 
     // deslizamiento en pared 
