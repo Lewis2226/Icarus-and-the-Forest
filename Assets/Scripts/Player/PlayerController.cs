@@ -96,14 +96,12 @@ public class PlayerController : MonoBehaviour
             }
             else if (!dobleJump)
             {
+                _animator.SetBool("DobleJump", true);
                 dobleJump = true; 
                 Jump();
             }
-              
+
             
-            
-            
-           
         }
         
 
@@ -179,7 +177,8 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("OnWall", _onWall);
         _animator.SetFloat("VerticalVelocity", _rigidbody.velocity.y);
         _animator.SetBool("Dash", isDashing);
-        _animator.SetBool("DoubleJump", dobleJump);
+        _animator.SetBool("DobleJump", false);
+
 
 
     }
