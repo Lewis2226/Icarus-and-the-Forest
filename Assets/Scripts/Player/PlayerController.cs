@@ -46,10 +46,15 @@ public class PlayerController : MonoBehaviour
     private float dashTime = 1f;
     private float dashingCooldown = 1f;
 
+    //Variables Coyote time
+    public float coyoteTime = .3f;
+    private float coyoteTimeCounter;
+
     //Referencias
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     public TrailRenderer trailRenderer;
+    
     //Movimiento 
     private Vector2 _movement;
     private bool _facingRight = true;
@@ -82,27 +87,43 @@ public class PlayerController : MonoBehaviour
         if (_isGrounded)
         {
             dobleJump = false;
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
         }
        
         
         //Salto
         if (Input.GetButtonDown("Jump"))
         {
-            if (_isGrounded)
+            if (_isGrounded )
             {
                 Jump();
                 isJumping = true;
                 jumpTimerCounter = jumptime;
             }
-            else if (!dobleJump)
+            
+            //Coyote time
+            if (coyoteTimeCounter > 0)
+            {
+                Jump();
+            }
+
+            //Doble salto
+            else if (!dobleJump) 
             {
                 _animator.SetBool("DobleJump", true);
                 dobleJump = true; 
                 Jump();
             }
 
+
             
         }
+
+       
         
 
         //Salto Cargado 
@@ -127,6 +148,8 @@ public class PlayerController : MonoBehaviour
          WallSlide();
         //Salto en pared
          WallJump();
+        
+        
 
         if (!isWallJumping)
         {
@@ -234,6 +257,8 @@ public class PlayerController : MonoBehaviour
             isWallJumping = true;
             _rigidbody.velocity = new Vector2( wallJumpingDirection* wallJumpingPower.x , wallJumpingPower.y);
             wallJumpingCouter = 0;
+            dobleJump = false;
+
 
             if (transform.localScale.x != wallJumpingDirection)
             {
@@ -243,6 +268,7 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = localScale;
             }
             Invoke("StopWallJumping", wallJumpingDuration);
+
         }
     }
 
