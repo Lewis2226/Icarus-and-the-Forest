@@ -7,21 +7,31 @@ public class EnemyPatrol : EnemyHazard
     [SerializeField] private float velocidadMovimiento;
     [SerializeField] private Transform[] puntosMoviminto;
     [SerializeField] private float distanciaMinima;
+    public bool lookingRigth; 
 
     private int siguientePunto;
 
-    private SpriteRenderer spriteRenderer;
    
-
-
-
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         Girar();
     }
 
     private void Update()
+    {
+        Move();
+       
+
+    }
+    private void Girar()
+    {
+        lookingRigth = !lookingRigth;
+        float localScaleX = transform.localScale.x;
+        localScaleX = localScaleX * -1f;
+        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.y);
+    }
+
+    public virtual void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, puntosMoviminto[siguientePunto].position, velocidadMovimiento * Time.deltaTime);
         if (Vector2.Distance(transform.position, puntosMoviminto[siguientePunto].position) < distanciaMinima)
@@ -33,18 +43,5 @@ public class EnemyPatrol : EnemyHazard
             }
             Girar();
         }
-
-    }
-    private void Girar()
-    {
-        if (transform.position.x < puntosMoviminto[siguientePunto].position.x)
-        { 
-            spriteRenderer.flipX = true;
-
-        }
-        else
-        {
-            spriteRenderer.flipX = false;
-        }
-    }
+    } 
 }

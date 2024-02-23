@@ -6,11 +6,11 @@ public class Health : MonoBehaviour
 {
     public int totalhp = 1;
     private int hp;
-    private SpriteRenderer renderer;
+    private SpriteRenderer _renderer;
     
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        _renderer = GetComponent<SpriteRenderer>();
         hp = totalhp; 
     }
 
@@ -31,8 +31,8 @@ public class Health : MonoBehaviour
 
     private IEnumerator EfectoVisual()
     {
-        renderer.color = Color.red;
+        _renderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        renderer.color = Color.white;
+        _renderer.color = Color.white;
     }
 }
