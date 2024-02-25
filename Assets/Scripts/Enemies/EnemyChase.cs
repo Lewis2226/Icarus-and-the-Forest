@@ -1,71 +1,55 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChase : EnemyHazard
+public class EnemyChase : EnemyPatrol
 {
-    [SerializeField] private float velocidadMovimiento;
-    [SerializeField] private Transform[] puntosMoviminto;
-    [SerializeField] private float distanciaMinima;
-    public bool lookingRigth;
-
-    private int siguientePunto;
-    public Transform playtransform;
-    public bool isChasing;
-    public float chaseDistance;
-
-    private void Start()
+    public Transform playertransform;
+    public bool playerSeen;
+    public int playerSeenDistance;
+   
+    public override void Move()
     {
-        Girar();
-    }
-    private void Update()
-    {
-        if (isChasing)
+        if (Vector2.Distance(transform.position, playertransform.position) < playerSeenDistance)
         {
-            if (transform.position.x > playtransform.position.x)
+            playerSeen = true;
+            Debug.Log("He visto al jugador");
+            if (playertransform.position.x  > transform.position.x)
             {
-                transform.position += Vector3.left * velocidadMovimiento * Time.deltaTime;
-                
-            }
-
-            if (transform.position.x < playtransform.position.x)
-            {
-                transform.position += Vector3.right * velocidadMovimiento * Time.deltaTime;
-            }
-        }
-        else
-        {
-            if (Vector2.Distance(transform.position, playtransform.position) < chaseDistance)
-            {
-                isChasing = true;
+                transform.localScale= new Vector3 (1f, 1f, 1);
+                lookingRigth = true;
             }
             else
             {
-                
-                transform.position = Vector2.MoveTowards(transform.position, puntosMoviminto[siguientePunto].position, velocidadMovimiento * Time.deltaTime);
-                if (Vector2.Distance(transform.position, puntosMoviminto[siguientePunto].position) < distanciaMinima)
-                {
-                    siguientePunto += 1;
-                    if (siguientePunto >= puntosMoviminto.Length)
-                    {
-                        siguientePunto = 0;
-                    }
-                    Girar();
-                }
+                transform.localScale = new Vector3(-1f, 1f, 1);
+                lookingRigth = false;
             }
-
-          
-
+        } 
+        else
+        {
+            playerSeen = false;
+            
         }
+
+        if (playerSeen)
+        {
+            
+            transform.position = Vector2.MoveTowards(transform.position, playertransform.position, velocidadMovimiento * Time.deltaTime);
+        }
+        else
+        {  if(puntosMoviminto[siguientePunto].position.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1);
+                lookingRigth =true;
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1);
+                lookingRigth = false;
+            }
+            base.Move();
+        }
+        
     }
 
-    private void Girar()
-    {
-        lookingRigth = !lookingRigth;
-        float localScaleX = transform.localScale.x;
-        localScaleX = localScaleX * -1f;
-        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.y);
-    }
-   
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyPatrol : EnemyHazard
 {
-    [SerializeField] private float velocidadMovimiento;
-    [SerializeField] private Transform[] puntosMoviminto;
+    [SerializeField] protected float velocidadMovimiento;
+    [SerializeField] protected Transform[] puntosMoviminto;
     [SerializeField] private float distanciaMinima;
     public bool lookingRigth; 
 
-    private int siguientePunto;
+    protected int siguientePunto;
 
    
     private void Start()
@@ -23,7 +23,7 @@ public class EnemyPatrol : EnemyHazard
        
 
     }
-    private void Girar()
+    public void Girar()
     {
         lookingRigth = !lookingRigth;
         float localScaleX = transform.localScale.x;
