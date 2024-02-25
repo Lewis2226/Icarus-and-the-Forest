@@ -2146,6 +2146,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &750654240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 750654241}
+  m_Layer: 0
+  m_Name: Respwan  Point
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &750654241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750654240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.23, y: -2.17, z: -0.103965074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757155889
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,6 +3269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalhp: 1
+  respawnPoint: {fileID: 750654241}
+  respawnTime: 0
+  dead: 0
+  waitTime: 0.2
 --- !u!1 &1720532299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3319,12 +3354,12 @@ GameObject:
   - component: {fileID: 1855703206}
   - component: {fileID: 1855703212}
   m_Layer: 0
-  m_Name: Terry Fly 1
+  m_Name: Terry (Follow Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1855703206
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,11 +7,35 @@ public class Health : MonoBehaviour
     public int totalhp = 1;
     private int hp;
     private SpriteRenderer _renderer;
+    public Transform respawnPoint;
+    private float maxRespawnTime = 0.25f;
+    public float respawnTime;
+    public bool dead;
+    private float maxWaitTime = 0.25f;
+    public float waitTime;
     
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
         hp = totalhp; 
+        dead = false;
+        respawnTime = maxRespawnTime;
+        waitTime = maxWaitTime;
+    }
+
+    private void FixedUpdate()
+    {
+
+      if (dead)
+      {
+        waitTime -= Time.deltaTime;
+        if(waitTime<= 0)
+        {
+          respawnTime -= Time.deltaTime;
+          Dead(false);
+        } 
+            
+      }
     }
 
     public void HaveDamage(int damage)
@@ -25,6 +49,7 @@ public class Health : MonoBehaviour
         {
             hp = 0;
             Debug.Log("Te has muerto");
+            dead = true;
         }
 
     }
@@ -34,5 +59,17 @@ public class Health : MonoBehaviour
         _renderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         _renderer.color = Color.white;
+    }
+
+    public void Dead(bool isDead)
+    {
+      dead = isDead;
+      transform.position = respawnPoint.position;
+      transform.localScale = new Vector3(1, 1, 1);
+      hp = totalhp;
+      waitTime = maxWaitTime;
+      GetComponent<BoxCollider2D>().enabled = !isDead;
+      GetComponent<SpriteRenderer>().enabled = !isDead;
+      
     }
 }
