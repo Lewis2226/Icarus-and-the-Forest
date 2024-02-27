@@ -57,10 +57,12 @@ public class PlayerController : MonoBehaviour
     
     //Movimiento 
     private Vector2 _movement;
-    private bool _facingRight = true;
+    public bool _facingRight = true;
     private bool _isGrounded;
     private bool _onWall;
     private bool isWallSlide;
+
+    //Correr
 
     //Otras
     public float radius;

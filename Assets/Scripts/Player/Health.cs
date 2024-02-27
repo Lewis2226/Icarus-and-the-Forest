@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public bool dead;
     private float maxWaitTime = 0.25f;
     public float waitTime;
+    public PlayerController playerController;
     
     void Start()
     {
@@ -67,6 +68,7 @@ public class Health : MonoBehaviour
       transform.position = respawnPoint.position;
       transform.localScale = new Vector3(1, 1, 1);
       hp = totalhp;
+      playerController._facingRight = true;
       waitTime = maxWaitTime;
       GetComponent<BoxCollider2D>().enabled = !isDead;
       GetComponent<SpriteRenderer>().enabled = !isDead;
