@@ -172,7 +172,7 @@ MonoBehaviour:
   puntosMoviminto:
   - {fileID: 0}
   - {fileID: 0}
-  distanciaMinima: 0.03
+  distanciaMinima: 0.5
   lookingRigth: 1
 --- !u!1 &6937723887979484785
 GameObject:

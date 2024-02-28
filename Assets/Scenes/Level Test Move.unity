@@ -2963,17 +2963,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2049839305 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4134341159097268771, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
-  m_PrefabInstance: {fileID: 4134341159666755150}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5852119263b57e34eb34632dbedc1f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2113528655
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,26 +3114,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4134341158690853928, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4134341159097268769, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 750654241}
-    - target: {fileID: 4134341159097268769, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 2049839305}
-    - target: {fileID: 4134341159097268770, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
-      propertyPath: m_Size.y
-      value: 0.935132
-      objectReference: {fileID: 0}
-    - target: {fileID: 4134341159097268770, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.2640381
-      objectReference: {fileID: 0}
     - target: {fileID: 4134341159097268772, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: m_RootOrder
       value: 3
