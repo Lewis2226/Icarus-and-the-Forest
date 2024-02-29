@@ -2095,11 +2095,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &657406850 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9177985690145300029, guid: a6e8f4272a8d955488b7942c653faa78, type: 3}
-  m_PrefabInstance: {fileID: 213570837}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731878332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,11 +2417,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1257187949 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2812818231401010362, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
-  m_PrefabInstance: {fileID: 1767761698}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1265178225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3072,6 +3062,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1628217762}
     m_Modifications:
+    - target: {fileID: 1767761702, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
+      propertyPath: MenuWin
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767761702, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
+      propertyPath: LevelName
+      value: Level1
+      objectReference: {fileID: 0}
     - target: {fileID: 2812818231401010308, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3116,22 +3114,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2812818231401010311, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
-      propertyPath: m_Size.x
-      value: 1.6480713
-      objectReference: {fileID: 0}
-    - target: {fileID: 2812818231401010311, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
-      propertyPath: m_Size.y
-      value: 1.3296218
-      objectReference: {fileID: 0}
-    - target: {fileID: 2812818231401010311, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.03517914
-      objectReference: {fileID: 0}
-    - target: {fileID: 2812818231401010311, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.13472605
-      objectReference: {fileID: 0}
     - target: {fileID: 2812818231401010362, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
       propertyPath: m_Name
       value: Nigthly Caged(Meta)
@@ -3144,20 +3126,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2812818231401010308, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
   m_PrefabInstance: {fileID: 1767761698}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1767761702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257187949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0a06bb7804b8334385ebdd5c9df1190, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelName: Level Test Move
-  MenuWin: {fileID: 657406850}
 --- !u!1001 &1796375217
 PrefabInstance:
   m_ObjectHideFlags: 0

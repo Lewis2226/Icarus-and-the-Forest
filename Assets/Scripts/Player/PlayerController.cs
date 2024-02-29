@@ -251,11 +251,12 @@ public class PlayerController : MonoBehaviour
         // deslizamiento en pared 
         private void WallSlide()
         {
-            if (_onWall && !_isGrounded)
-            {
+            if (_onWall && !_isGrounded && _movement.normalized.x == 1)
+        {
                 isWallSlide = true;
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, Mathf.Clamp(_rigidbody.velocity.y, -slideSpeed, float.MaxValue));
             }
+            
             else
             {
                 isWallSlide = false;

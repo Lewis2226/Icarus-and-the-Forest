@@ -354,6 +354,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 149403132}
     m_Modifications:
+    - target: {fileID: 1767761702, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
+      propertyPath: LevelName
+      value: Level4
+      objectReference: {fileID: 0}
     - target: {fileID: 2812818231401010308, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2098,6 +2102,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 790189321}
+    - target: {fileID: 4134341159097268770, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4134341159097268772, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2142,6 +2150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4134341159097268773, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 329876f51f4d1f341952882230e7135c, type: 2}
     - target: {fileID: 4134341159097268777, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: m_Name
       value: Icarus (Player)
@@ -2327,6 +2339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1932391245}
   - component: {fileID: 1932391246}
+  - component: {fileID: 1932391247}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -2388,6 +2401,21 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 784785667}
+--- !u!114 &1932391247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932391244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoundingShape2D: {fileID: 0}
+  m_Damping: 0.5
+  m_MaxWindowSize: -1
 --- !u!1 &1956901466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,7 +2718,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 79f8ce7b1261d324cac672f0a8006a1c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
