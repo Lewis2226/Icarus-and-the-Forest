@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
 
     //Variables dash
-    private bool canDash = true;
+    public bool canDash = true;
     private bool isDashing;
     private float dashPower = 15f;
     private float dashTime = 1f;
@@ -61,8 +61,6 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private bool _onWall;
     private bool isWallSlide;
-
-    //Correr
 
     //Planear
     float orginalGravity;
@@ -133,7 +131,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Planear
-        if (Input.GetKey(KeyCode.LeftControl) && !isPlannig)
+        if (Input.GetKey(KeyCode.LeftControl) && !isPlannig && !_isGrounded)
         {
             isPlannig = true;
         }

@@ -41,16 +41,20 @@ public class Health : MonoBehaviour
 
     public void HaveDamage(int damage)
     {
-        hp -= damage;
-
-        //Efecto visual
-        StartCoroutine("EfectoVisual");
-        //¿Has muerto?
-        if (hp <= 0)
+        if (playerController.canDash == true)
         {
-            hp = 0;
-            Debug.Log("Te has muerto");
-            dead = true;
+            hp -= damage;
+
+            //Efecto visual
+            StartCoroutine("EfectoVisual");
+            //¿Has muerto?
+
+            if (hp <= 0)
+            {
+                hp = 0;
+                Debug.Log("Te has muerto");
+                dead = true;
+            }
         }
 
     }
