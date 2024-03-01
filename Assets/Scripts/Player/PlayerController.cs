@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
 
             }
 
-
+          
 
 
             //Revisa si esta en el piso 
@@ -209,15 +209,24 @@ public class PlayerController : MonoBehaviour
 
         private void FixedUpdate()
         {
-            //Hacer el movimiento
-            float horizontalVeloctiy = _movement.normalized.x * speed;
-            _rigidbody.velocity = new Vector2(horizontalVeloctiy, _rigidbody.velocity.y);
+          //Hacer el movimiento
+           float horizontalVeloctiy;
+        if (_onWall)
+        {
+            horizontalVeloctiy = _movement.normalized.x * 0;
+        }
+        else
+        {
+            horizontalVeloctiy = _movement.normalized.x * speed;
+        }
+        _rigidbody.velocity = new Vector2(horizontalVeloctiy, _rigidbody.velocity.y);
 
             if (isDashing)
             {
                 return;
             }
-        }
+         
+    }
 
         private void LateUpdate()
         {
@@ -251,16 +260,14 @@ public class PlayerController : MonoBehaviour
         // deslizamiento en pared 
         private void WallSlide()
         {
-            if (_onWall && !_isGrounded && _movement.normalized.x == 1)
+            if (_onWall && !_isGrounded)
         {
                 isWallSlide = true;
-                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, Mathf.Clamp(_rigidbody.velocity.y, -slideSpeed, float.MaxValue));
+            } else
+            {
+              isWallSlide= false;
             }
             
-            else
-            {
-                isWallSlide = false;
-            }
         }
 
         //Salto en pared
