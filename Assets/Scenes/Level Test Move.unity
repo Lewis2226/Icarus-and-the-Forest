@@ -3419,9 +3419,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 750654241}
     - target: {fileID: 4134341159097268770, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0336237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134341159097268770, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 329876f51f4d1f341952882230e7135c, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134341159097268770, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0042328835
+      objectReference: {fileID: 0}
     - target: {fileID: 4134341159097268772, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3469,10 +3477,14 @@ PrefabInstance:
     - target: {fileID: 4134341159097268773, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 329876f51f4d1f341952882230e7135c, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4134341159097268777, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134341159813092363, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

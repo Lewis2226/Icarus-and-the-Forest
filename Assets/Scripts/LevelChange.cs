@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
@@ -15,7 +14,6 @@ public class LevelChange : MonoBehaviour
         {
             MenuWin.SetActive(true);
             collision.gameObject.SetActive(false);
-            BackMainMenu();
         } 
     }
     public void NextLevel()

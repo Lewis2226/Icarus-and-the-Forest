@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     private float maxWaitTime = 0.25f;
     public float waitTime;
     public PlayerController playerController;
+    public GameObject gameOver;
     
     void Start()
     {
@@ -54,6 +55,7 @@ public class Health : MonoBehaviour
                 hp = 0;
                 Debug.Log("Te has muerto");
                 dead = true;
+               
             }
         }
 
@@ -68,14 +70,20 @@ public class Health : MonoBehaviour
 
     public void Dead(bool isDead)
     {
-      dead = isDead;
+     gameOver.SetActive(true);
       transform.position = respawnPoint.position;
       transform.localScale = new Vector3(1, 1, 1);
-      hp = totalhp;
       playerController._facingRight = true;
       waitTime = maxWaitTime;
       GetComponent<BoxCollider2D>().enabled = !isDead;
       GetComponent<SpriteRenderer>().enabled = !isDead;
       
+    } 
+
+    public void Revival() 
+    {
+        dead = false;
+        
+        hp = totalhp;
     }
 }

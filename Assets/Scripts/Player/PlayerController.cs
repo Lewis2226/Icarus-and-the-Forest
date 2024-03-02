@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -261,11 +260,14 @@ public class PlayerController : MonoBehaviour
         private void WallSlide()
         {
             if (_onWall && !_isGrounded)
-        {
+            {
                 isWallSlide = true;
+              _rigidbody.gravityScale = 0.5f;
             } else
+
             {
               isWallSlide= false;
+            _rigidbody.gravityScale = orginalGravity;
             }
             
         }

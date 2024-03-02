@@ -69,7 +69,7 @@ Transform:
   - {fileID: 4134341158690853929}
   - {fileID: 4134341159813092363}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4134341159097268775
 SpriteRenderer:
@@ -156,7 +156,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008122444, y: -0.2640381}
+  m_Offset: {x: 0.027124405, y: -0.2640381}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,7 +167,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.16, y: 0.935132}
+  m_Size: {x: 1.0903263, y: 0.935132}
   m_EdgeRadius: 0
 --- !u!50 &4134341159097268773
 Rigidbody2D:
@@ -215,12 +215,12 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 128
+  canDash: 1
   coyoteTime: 0.3
   trailRenderer: {fileID: 4134341159097268768}
   _facingRight: 1
   isPlannig: 0
-  radius: 0.3
-  health: {fileID: 0}
+  radius: 0.15
 --- !u!96 &4134341159097268768
 TrailRenderer:
   serializedVersion: 3
@@ -350,6 +350,7 @@ MonoBehaviour:
   dead: 0
   waitTime: 0.2
   playerController: {fileID: 4134341159097268771}
+  gameOver: {fileID: 0}
 --- !u!1 &4134341159813092362
 GameObject:
   m_ObjectHideFlags: 0
