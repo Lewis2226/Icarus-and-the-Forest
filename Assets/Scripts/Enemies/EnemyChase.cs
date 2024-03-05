@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,9 @@ using UnityEngine;
 public class EnemyChase : EnemyPatrol
 {
     public Transform playertransform;
+    public Transform posicioninical;
     public bool playerSeen;
-    public int playerSeenDistance;
+    public float playerSeenDistance;
    
     public override void Move()
     {
@@ -49,7 +51,14 @@ public class EnemyChase : EnemyPatrol
             }
             base.Move();
         }
+
         
+    }
+
+    public void WolfieRevival()
+    {
+        transform.position = posicioninical.position;
+
     }
 
 }

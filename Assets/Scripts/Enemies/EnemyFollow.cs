@@ -11,11 +11,6 @@ public class EnemyFollow : EnemyHazard
     
 
 
-    private void Start()
-    {
-        
-        transform.position = posicioninicial.position;
-    }
 
     public void Update()
     {
@@ -28,6 +23,11 @@ public class EnemyFollow : EnemyHazard
         {
             transform.localScale = new Vector3(-1f, 1f, 1);
         }
+    }
+
+    public void TerryRevival()
+    {
+        transform.position = posicioninicial.position;
     }
 
     

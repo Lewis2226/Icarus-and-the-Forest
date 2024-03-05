@@ -155,8 +155,9 @@ MonoBehaviour:
   distanciaMinima: 0.3
   lookingRigth: 0
   playertransform: {fileID: 0}
+  posicioninical: {fileID: 0}
   playerSeen: 0
-  playerSeenDistance: 4
+  playerSeenDistance: 2.75
 --- !u!95 &7571477894817653559
 Animator:
   serializedVersion: 4

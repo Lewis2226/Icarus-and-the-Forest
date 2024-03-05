@@ -69,7 +69,7 @@ Transform:
   - {fileID: 4134341158690853929}
   - {fileID: 4134341159813092363}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4134341159097268775
 SpriteRenderer:
@@ -210,7 +210,7 @@ MonoBehaviour:
     m_Bits: 64
   dobleJump: 0
   jumptime: 0.5
-  jumpForceChager: 7
+  jumpForceChager: 5.25
   slideSpeed: 1
   wallCheck: {fileID: 4134341159813092363}
   wallLayer:

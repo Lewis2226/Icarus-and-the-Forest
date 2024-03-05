@@ -478,7 +478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241918383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5103703, y: -0.6062108, z: -10.055915}
+  m_LocalPosition: {x: -2.5103698, y: -0.6062108, z: -10.055915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -758,7 +758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387058094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.633477, y: -3.023869, z: -10.055915}
+  m_LocalPosition: {x: -10.343477, y: -3.023869, z: -10.055915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1428,6 +1428,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d882bcb0330fd4dab9d2dfa4d3557c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &782544792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782544793}
+  m_Layer: 0
+  m_Name: 'posiciones inicales '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782544793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782544792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.2523139, y: 3.7212222, z: -0.3087023}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1115974726}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803338533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,11 +1743,11 @@ PrefabInstance:
     - target: {fileID: 6937723887431241011, guid: 031584ea41883884eb09f904f775a2ae, type: 3}
       propertyPath: puntosMoviminto.Array.data[0]
       value: 
-      objectReference: {fileID: 1123298447}
+      objectReference: {fileID: 585356398}
     - target: {fileID: 6937723887431241011, guid: 031584ea41883884eb09f904f775a2ae, type: 3}
       propertyPath: puntosMoviminto.Array.data[1]
       value: 
-      objectReference: {fileID: 585356398}
+      objectReference: {fileID: 1123298447}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 031584ea41883884eb09f904f775a2ae, type: 3}
@@ -2145,11 +2177,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9177985690145300018, guid: a6e8f4272a8d955488b7942c653faa78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.503389
+      value: -3.02
       objectReference: {fileID: 0}
     - target: {fileID: 9177985690145300018, guid: a6e8f4272a8d955488b7942c653faa78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7451271
+      value: 3.34
       objectReference: {fileID: 0}
     - target: {fileID: 9177985690145300018, guid: a6e8f4272a8d955488b7942c653faa78, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2195,6 +2227,10 @@ PrefabInstance:
       propertyPath: playertransform
       value: 
       objectReference: {fileID: 781063273}
+    - target: {fileID: 9177985690145300030, guid: a6e8f4272a8d955488b7942c653faa78, type: 3}
+      propertyPath: posicioninicial
+      value: 
+      objectReference: {fileID: 1115974726}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a6e8f4272a8d955488b7942c653faa78, type: 3}
@@ -2203,6 +2239,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9177985690145300029, guid: a6e8f4272a8d955488b7942c653faa78, type: 3}
   m_PrefabInstance: {fileID: 989758333}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &989758335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9177985690145300030, guid: a6e8f4272a8d955488b7942c653faa78, type: 3}
+  m_PrefabInstance: {fileID: 989758333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989758334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d185aa9d1e699542a9158b3d760b4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1007289367
 GameObject:
   m_ObjectHideFlags: 3
@@ -2472,6 +2519,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033620037}
   m_CullTransparentMesh: 1
+--- !u!1 &1115974725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1115974726}
+  m_Layer: 0
+  m_Name: Terry
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1115974726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115974725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.02, y: 1.38, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 782544793}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1123298446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,7 +2637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4287513327991019275, guid: cd8041ac5ecb2f142ba7a61240b45128, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.9142447
+      value: -6.52
       objectReference: {fileID: 0}
     - target: {fileID: 4287513327991019275, guid: cd8041ac5ecb2f142ba7a61240b45128, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3850,7 +3928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4134341159097268772, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.06
+      value: -7.77
       objectReference: {fileID: 0}
     - target: {fileID: 4134341159097268772, guid: 31be5b2bd3b688249981f154cbe99685, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4187,6 +4265,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2035025361}
         m_TargetAssemblyTypeName: TerryTurnOn, Assembly-CSharp
         m_MethodName: Off
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 989758335}
+        m_TargetAssemblyTypeName: EnemyFollow, Assembly-CSharp
+        m_MethodName: TerryRevival
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

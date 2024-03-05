@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public bool canDash = true;
     private bool isDashing;
     private float dashPower = 15f;
-    private float dashTime = 1f;
+    public float dashTime = 1f;
     private float dashingCooldown = 1f;
 
     //Variables Coyote time
@@ -225,23 +225,22 @@ public class PlayerController : MonoBehaviour
             {
                 return;
             }
-         
-    }
-
-        private void LateUpdate()
-        {
-            //Comprobar las animaciones
-            _animator.SetBool("Idle", _movement == Vector2.zero);
-            _animator.SetBool("IsGrounded", _isGrounded);
-            _animator.SetBool("OnWall", _onWall);
-            _animator.SetFloat("VerticalVelocity", _rigidbody.velocity.y);
-            _animator.SetBool("Dash", isDashing);
-            _animator.SetBool("DobleJump", false);
-            _animator.SetBool("Plane", isPlannig);
         }
 
-        //Hace el giro del personaje
-        private void Flip()
+    private void LateUpdate()
+    {
+        //Comprobar las animaciones
+        _animator.SetBool("Idle", _movement == Vector2.zero);
+        _animator.SetBool("IsGrounded", _isGrounded);
+        _animator.SetBool("OnWall", _onWall);
+        _animator.SetFloat("VerticalVelocity", _rigidbody.velocity.y);
+        _animator.SetBool("Dash", isDashing);
+        _animator.SetBool("DobleJump", false);
+        _animator.SetBool("Plane", isPlannig);
+    }
+
+    //Hace el giro del personaje
+    private void Flip()
         {
             _facingRight = !_facingRight;
             float localScaleX = transform.localScale.x;
@@ -263,7 +262,7 @@ public class PlayerController : MonoBehaviour
             if (_onWall && !_isGrounded)
             {
                 isWallSlide = true;
-              _rigidbody.gravityScale = 0.5f;
+              _rigidbody.gravityScale = .30f;
             } else
 
             {
@@ -322,10 +321,10 @@ public class PlayerController : MonoBehaviour
             _rigidbody.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
             trailRenderer.emitting = true;
             yield return new WaitForSeconds(dashTime);
+            isDashing = false;
             trailRenderer.emitting = false;
             _rigidbody.gravityScale = orginalGravity;
             yield return new WaitForSeconds(dashingCooldown);
-            isDashing = false;
             canDash = true;
         }
 
@@ -335,7 +334,7 @@ public class PlayerController : MonoBehaviour
             isPlannig = true;
             if(_rigidbody.velocity.y < 0f) 
             {
-             _rigidbody.gravityScale = 0.5f;
+             _rigidbody.gravityScale = 0.25f;
             } 
             else
             {

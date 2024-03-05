@@ -1896,11 +1896,11 @@ PrefabInstance:
     - target: {fileID: 6937723887431241011, guid: 031584ea41883884eb09f904f775a2ae, type: 3}
       propertyPath: puntosMoviminto.Array.data[0]
       value: 
-      objectReference: {fileID: 317216069}
+      objectReference: {fileID: 232588155}
     - target: {fileID: 6937723887431241011, guid: 031584ea41883884eb09f904f775a2ae, type: 3}
       propertyPath: puntosMoviminto.Array.data[1]
       value: 
-      objectReference: {fileID: 232588155}
+      objectReference: {fileID: 317216069}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 031584ea41883884eb09f904f775a2ae, type: 3}
@@ -2365,11 +2365,11 @@ PrefabInstance:
     - target: {fileID: 6937723887431241011, guid: 031584ea41883884eb09f904f775a2ae, type: 3}
       propertyPath: puntosMoviminto.Array.data[0]
       value: 
-      objectReference: {fileID: 259443084}
+      objectReference: {fileID: 1884462370}
     - target: {fileID: 6937723887431241011, guid: 031584ea41883884eb09f904f775a2ae, type: 3}
       propertyPath: puntosMoviminto.Array.data[1]
       value: 
-      objectReference: {fileID: 1884462370}
+      objectReference: {fileID: 259443084}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 031584ea41883884eb09f904f775a2ae, type: 3}
