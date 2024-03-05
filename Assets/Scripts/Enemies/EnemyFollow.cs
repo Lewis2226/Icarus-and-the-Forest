@@ -6,16 +6,15 @@ public class EnemyFollow : EnemyHazard
 {
     public float velocidadMovimiento;
     public Transform playertransform;
-    public float alturainicial;
-    public bool tocandopiso;
-    public Collider2D test;
+    public Transform posicioninicial;
+   
     
 
 
     private void Start()
     {
-        alturainicial = transform.position.y;
-        test.enabled = false;
+        
+        transform.position = posicioninicial.position;
     }
 
     public void Update()

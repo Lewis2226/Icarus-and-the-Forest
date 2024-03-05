@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private float jumpTimerCounter;
     public float jumptime;
     private bool isJumping;
+    public float jumpForceChager;
 
 
     //Variables  deslizamiento en pared 
@@ -156,7 +157,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (jumpTimerCounter > 0)
                 {
-                    _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce);
+                    _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForceChager);
                     jumpTimerCounter -= Time.deltaTime;
                 }
                 else
@@ -267,7 +268,7 @@ public class PlayerController : MonoBehaviour
 
             {
               isWallSlide= false;
-            _rigidbody.gravityScale = orginalGravity;
+              _rigidbody.gravityScale = orginalGravity;
             }
             
         }

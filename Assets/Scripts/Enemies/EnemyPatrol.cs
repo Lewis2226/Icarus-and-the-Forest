@@ -7,6 +7,7 @@ public class EnemyPatrol : EnemyHazard
     [SerializeField] protected float velocidadMovimiento;
     [SerializeField] protected Transform[] puntosMoviminto;
     [SerializeField] private float distanciaMinima;
+    public Transform posicioninicial;
     public bool lookingRigth; 
 
     protected int siguientePunto;
@@ -14,6 +15,7 @@ public class EnemyPatrol : EnemyHazard
    
     private void Start()
     {
+        transform.position = posicioninicial.position; 
         Girar();
     }
 
