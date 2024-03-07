@@ -69,6 +69,9 @@ public class PlayerController : MonoBehaviour
     //Otras
     public float radius;
 
+    //Particulas 
+    public GameObject Particulas;
+
     private void Awake() //Se toman los componentes necesarios
 
     {
@@ -253,6 +256,8 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce);
             _isGrounded = false;
+            Particulas.SetActive(true);
+            Invoke("ParticleOff", 1.5f);
 
         }
 
@@ -329,7 +334,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Planear
-          public void Plan()
+          private void Plan()
           {
             isPlannig = true;
             if(_rigidbody.velocity.y < 0f) 
@@ -341,6 +346,11 @@ public class PlayerController : MonoBehaviour
             _rigidbody.gravityScale = orginalGravity;
             }
           }
+
+         private void ParticleOff()
+         {
+           Particulas.SetActive(false);
+         }
     } 
 
 
