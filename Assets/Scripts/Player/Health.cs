@@ -55,7 +55,9 @@ public class Health : MonoBehaviour
                 hp = 0;
                 Debug.Log("Te has muerto");
                 dead = true;
-               
+                TotalDeaths.totalDeaths++;
+
+
             }
         }
 
@@ -70,7 +72,7 @@ public class Health : MonoBehaviour
 
     public void Dead(bool isDead)
     {
-     gameOver.SetActive(true);
+      gameOver.SetActive(true);
       transform.position = respawnPoint.position;
       transform.localScale = new Vector3(1, 1, 1);
       playerController._facingRight = true;
