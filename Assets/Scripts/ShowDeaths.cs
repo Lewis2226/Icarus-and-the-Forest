@@ -11,5 +11,18 @@ public class ShowDeaths : MonoBehaviour
     {
         textDeaths.text = TotalDeaths.totalDeaths.ToString();
     }
-    
+
+    public void ResetDeaths()
+    {
+        TotalDeaths.totalDeaths = 0;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            End();
+        }
+    }
+
 }
