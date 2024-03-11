@@ -150,9 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadMovimiento: 2
   playertransform: {fileID: 0}
-  alturainicial: 0
-  tocandopiso: 0
-  test: {fileID: 9177985690145300019}
+  posicioninicial: {fileID: 0}
 --- !u!95 &9177985690145300020
 Animator:
   serializedVersion: 4
@@ -218,7 +216,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.34195328, y: 0.12867641}
+  m_Offset: {x: 0.065024376, y: 0.0603503}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -229,5 +227,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45978546, y: 0.6088848}
+  m_Size: {x: 0.8950596, y: 0.47223258}
   m_EdgeRadius: 0

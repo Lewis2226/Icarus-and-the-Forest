@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
 
     //Variables dash
+    public float activarDash;
     public bool canDash = true;
     private bool isDashing;
     private float dashPower = 15f;
@@ -93,6 +94,13 @@ public class PlayerController : MonoBehaviour
         }
         //Registar el Movimiento 
         horizontalInput = Input.GetAxisRaw("Horizontal");
+        if (horizontalInput !=0)
+        {
+            DashInfo();
+        }
+        
+
+
         _movement = new Vector2(horizontalInput, 0);
 
         if (_isGrounded)
@@ -214,6 +222,8 @@ public class PlayerController : MonoBehaviour
         {
           //Hacer el movimiento
            float horizontalVeloctiy;
+        
+      
         if (_onWall)
         {
             horizontalVeloctiy = _movement.normalized.x * 0;
@@ -323,7 +333,7 @@ public class PlayerController : MonoBehaviour
             canDash = false;
             isDashing = true;
             _rigidbody.gravityScale = 0;
-            _rigidbody.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
+            _rigidbody.velocity = new Vector2 (dashPower * activarDash, 0f);
             trailRenderer.emitting = true;
             yield return new WaitForSeconds(dashTime);
             isDashing = false;
@@ -351,6 +361,18 @@ public class PlayerController : MonoBehaviour
          {
            Particulas.SetActive(false);
          }
+
+        private void DashInfo()
+        {
+         if (horizontalInput == 1)
+         {
+            activarDash = 1;
+         }
+         else if (horizontalInput == -1)
+         {
+            activarDash = -1;
+         }
+        }
     } 
 
 

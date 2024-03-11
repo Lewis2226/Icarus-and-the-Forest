@@ -45,6 +45,7 @@ public class Health : MonoBehaviour
         if (playerController.canDash == true)
         {
             hp -= damage;
+            playerController.enabled = false;
 
             //Efecto visual
             StartCoroutine("EfectoVisual");
@@ -87,5 +88,6 @@ public class Health : MonoBehaviour
         dead = false;
         
         hp = totalhp;
+        playerController.enabled = true;
     }
 }
