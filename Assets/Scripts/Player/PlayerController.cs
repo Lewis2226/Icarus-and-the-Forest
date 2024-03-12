@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private bool isDashing;
     private float dashPower = 4f;
     public float dashTime = 1f;
-    private float dashingCooldown = 1f;
+    private float dashingCooldown = .5f;
 
     //Variables Coyote time
     public float coyoteTime = .3f;
