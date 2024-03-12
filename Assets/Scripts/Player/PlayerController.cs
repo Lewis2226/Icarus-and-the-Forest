@@ -40,10 +40,10 @@ public class PlayerController : MonoBehaviour
 
 
     //Variables dash
-    public float activarDash;
+    public float direccion;
     public bool canDash = true;
     private bool isDashing;
-    private float dashPower = 15f;
+    private float dashPower = 4f;
     public float dashTime = 1f;
     private float dashingCooldown = 1f;
 
@@ -88,18 +88,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        
         if (isDashing)
         {
             return;
         }
+
         //Registar el Movimiento 
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        if (horizontalInput !=0)
-        {
-            DashInfo();
-        }
-        
 
+
+         
 
         _movement = new Vector2(horizontalInput, 0);
 
@@ -144,25 +143,17 @@ public class PlayerController : MonoBehaviour
         //Planear
         if (Input.GetKey(KeyCode.LeftControl) && !isPlannig && !_isGrounded)
         {
-            isPlannig = true;
-        }
-        else
-        {
-            isPlannig = false;
-        }
-        if (isPlannig)
-        {
-            
+             _rigidbody.gravityScale = 0.10f;
             Plan();
         }
         else
         {
+            isPlannig = false;
             _rigidbody.gravityScale = orginalGravity;
             isPlannig = false;
         }
-
-
-
+       
+        
             //Salto Cargado 
             if (Input.GetButton("Jump") && isJumping == true)
             {
@@ -190,16 +181,16 @@ public class PlayerController : MonoBehaviour
 
             if (!isWallJumping)
             {
-                //Hacer que el personaje gire
-                if (horizontalInput < 0f && _facingRight == true)
-                {
-                    Flip();
-                }
-                else if (horizontalInput > 0f && _facingRight == false)
-                {
-                    Flip();
-                }
-            }
+            //Hacer que el personaje gire
+            if (horizontalInput < 0f && _facingRight == true)
+             {
+                Flip();
+             }
+            else if (horizontalInput > 0f && _facingRight == false)
+             {
+                Flip();
+             }
+            }   
 
             //Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
@@ -222,21 +213,41 @@ public class PlayerController : MonoBehaviour
         {
           //Hacer el movimiento
            float horizontalVeloctiy;
-        
-      
+           if(_movement.x < 0) 
+           {
+            direccion = -1;
+           }
+           else if (_movement.x > 0) { }
+           {
+            direccion = 1;
+           }
+
+
         if (_onWall)
         {
-            horizontalVeloctiy = _movement.normalized.x * 0;
+            horizontalVeloctiy = _movement.x * 0;
         }
         else
         {
-            horizontalVeloctiy = _movement.normalized.x * speed;
+            horizontalVeloctiy = _movement.x * speed;
+            
         }
-        _rigidbody.velocity = new Vector2(horizontalVeloctiy, _rigidbody.velocity.y);
+
+
+        if (isDashing)
+        {
+            Debug.Log("Estoy haciendo el dash");
+        }
+        else
+        {
+            _rigidbody.velocity = new Vector2(horizontalVeloctiy, _rigidbody.velocity.y);
+        }
+        
 
             if (isDashing)
             {
-                return;
+             
+             return;
             }
         }
 
@@ -254,12 +265,13 @@ public class PlayerController : MonoBehaviour
 
     //Hace el giro del personaje
     private void Flip()
-        {
-            _facingRight = !_facingRight;
-            float localScaleX = transform.localScale.x;
-            localScaleX = localScaleX * -1f;
-            transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.y);
-        }
+    {
+        _facingRight = !_facingRight;
+        float localScaleX = transform.localScale.x;
+        localScaleX = localScaleX * -1f;
+        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
+
+    }
 
         //Permite saltar
         private void Jump()
@@ -333,8 +345,17 @@ public class PlayerController : MonoBehaviour
             canDash = false;
             isDashing = true;
             _rigidbody.gravityScale = 0;
-            _rigidbody.velocity = new Vector2 (dashPower * activarDash, 0f);
-            trailRenderer.emitting = true;
+        if (_facingRight)
+        {
+            _rigidbody.velocity = new Vector2(direccion * dashPower, 0f);
+            Debug.Log("Estoy haciendo dash hacia la derecha");
+        }
+        else
+        {
+            _rigidbody.velocity = new Vector2(direccion * -dashPower, 0f);
+            Debug.Log("Estoy haciendo dash hacia la izquierda");
+        }
+        trailRenderer.emitting = true;
             yield return new WaitForSeconds(dashTime);
             isDashing = false;
             trailRenderer.emitting = false;
@@ -347,32 +368,12 @@ public class PlayerController : MonoBehaviour
           private void Plan()
           {
             isPlannig = true;
-            if(_rigidbody.velocity.y < 0f) 
-            {
-             _rigidbody.gravityScale = 0.25f;
-            } 
-            else
-            {
-            _rigidbody.gravityScale = orginalGravity;
-            }
           }
 
          private void ParticleOff()
          {
            Particulas.SetActive(false);
          }
-
-        private void DashInfo()
-        {
-         if (horizontalInput == 1)
-         {
-            activarDash = 1;
-         }
-         else if (horizontalInput == -1)
-         {
-            activarDash = -1;
-         }
-        }
-    } 
+} 
 
 
