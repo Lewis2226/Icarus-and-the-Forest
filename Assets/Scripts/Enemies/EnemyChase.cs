@@ -14,7 +14,6 @@ public class EnemyChase : EnemyPatrol
         if (Vector2.Distance(transform.position, playertransform.position) < playerSeenDistance)
         {
             playerSeen = true;
-            Debug.Log("He visto al jugador");
             if (playertransform.position.x  > transform.position.x)
             {
                 transform.localScale= new Vector3 (1f, 1f, 1);

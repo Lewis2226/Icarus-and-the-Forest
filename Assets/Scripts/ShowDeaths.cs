@@ -10,6 +10,7 @@ public class ShowDeaths : MonoBehaviour
     public void End()
     {
         textDeaths.text = TotalDeaths.totalDeaths.ToString();
+        Debug.Log(textDeaths.text);
     }
 
     public void ResetDeaths()

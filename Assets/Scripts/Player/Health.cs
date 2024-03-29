@@ -54,11 +54,8 @@ public class Health : MonoBehaviour
             if (hp <= 0)
             {
                 hp = 0;
-                Debug.Log("Te has muerto");
                 dead = true;
                 TotalDeaths.totalDeaths++;
-
-
             }
         }
 

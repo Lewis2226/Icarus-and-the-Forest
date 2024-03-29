@@ -10,8 +10,6 @@ public class TerryTurnOn : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Terry.SetActive(true);
-            Debug.Log("El jugador paso");
-            
         }
     }
 

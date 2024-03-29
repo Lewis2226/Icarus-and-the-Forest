@@ -6,5 +6,4 @@ public class TotalDeaths : MonoBehaviour
 {
     public static int totalDeaths = 0;
 
-    
 }

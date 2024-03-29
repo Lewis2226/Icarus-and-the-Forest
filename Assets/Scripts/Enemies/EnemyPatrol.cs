@@ -12,8 +12,6 @@ public class EnemyPatrol : EnemyHazard
     protected int siguientePunto;
 
    
-    
-
     private void Update()
     {
         Move();

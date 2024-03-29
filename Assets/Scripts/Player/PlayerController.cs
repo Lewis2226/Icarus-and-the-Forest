@@ -236,17 +236,14 @@ public class PlayerController : MonoBehaviour
 
         if (isDashing)
         {
-            Debug.Log("Estoy haciendo el dash");
+            //Debug.Log("Estoy haciendo el dash");
         }
         else
         {
             _rigidbody.velocity = new Vector2(horizontalVeloctiy, _rigidbody.velocity.y);
         }
-        
-
             if (isDashing)
             {
-             
              return;
             }
         }
@@ -348,12 +345,10 @@ public class PlayerController : MonoBehaviour
         if (_facingRight)
         {
             _rigidbody.velocity = new Vector2(direccion * dashPower, 0f);
-            Debug.Log("Estoy haciendo dash hacia la derecha");
         }
         else
         {
             _rigidbody.velocity = new Vector2(direccion * -dashPower, 0f);
-            Debug.Log("Estoy haciendo dash hacia la izquierda");
         }
         trailRenderer.emitting = true;
             yield return new WaitForSeconds(dashTime);

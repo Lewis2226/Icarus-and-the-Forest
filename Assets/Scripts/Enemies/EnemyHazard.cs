@@ -10,7 +10,6 @@ public class EnemyHazard : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("He tocado al jugador");
             collision.SendMessage("HaveDamage", damege);
         }
     }

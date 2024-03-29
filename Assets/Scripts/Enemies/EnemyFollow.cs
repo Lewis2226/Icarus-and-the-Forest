@@ -9,9 +9,6 @@ public class EnemyFollow : EnemyHazard
     public Transform posicioninicial;
    
     
-
-
-
     public void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, playertransform.position, velocidadMovimiento * Time.deltaTime);
