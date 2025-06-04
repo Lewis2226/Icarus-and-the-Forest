@@ -42,8 +42,7 @@ public class Health : MonoBehaviour
 
     public void HaveDamage(int damage)
     {
-        if (playerController.canDash == true)
-        {
+        
             hp -= damage;
             playerController.enabled = false;
 
@@ -57,7 +56,7 @@ public class Health : MonoBehaviour
                 dead = true;
                 TotalDeaths.totalDeaths++;
             }
-        }
+        
 
     }
 
