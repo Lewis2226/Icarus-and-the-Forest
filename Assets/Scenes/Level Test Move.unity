@@ -4126,6 +4126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hiedra mortal (Hazard Enemy)
       objectReference: {fileID: 0}
+    - target: {fileID: 7849148100257125540, guid: 5d7d43288f4e21c47a8d238e5d3c3c9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7849148100257125593, guid: 5d7d43288f4e21c47a8d238e5d3c3c9e, type: 3}
       propertyPath: m_RootOrder
       value: 4

@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     public float radius;
 
     //Arduino
-    SerialPort serial = new SerialPort("COM7", 9600);
+    SerialPort serial = new SerialPort("COM7", 115200);
 
 
 
@@ -90,38 +90,18 @@ public class PlayerController : MonoBehaviour
                 int jumpPressed = int.Parse(parts[1]);
 
 
-                float horizontal = Mathf.Lerp(-1f, 1f, potValue / 1023f);
+                float horizontal = Mathf.Lerp(-1f, 1f, potValue / 674f);
                 horizontalInput = horizontal;
-                Debug.Log(jumpPressed);
 
                 if (jumpPressed == 1)
                 {
-                    Debug.Log("Se puede saltar");
                     if (_isGrounded)
                     {
                         Jump();
 
                     }
-
-                    //Coyote time
-                    if (coyoteTimeCounter > 0)
-                    {
-                        Jump();
-                    }
-
-                    //Doble salto
-                    else if (!dobleJump)
-                    {
-                        _animator.SetBool("DobleJump", true);
-                        dobleJump = true;
-                        Jump();
-                    }
-
                 }
             }
-
-            
-
         }
         catch (System.Exception) { }
 
