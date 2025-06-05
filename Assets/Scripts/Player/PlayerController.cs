@@ -12,9 +12,6 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
 
 
-    //Variables doble salto
-    public bool dobleJump;
-
 
     //Variables  deslizamiento en pared 
     public float slideSpeed = 1f;
@@ -239,7 +236,7 @@ public class PlayerController : MonoBehaviour
                 isWallJumping = true;
                 _rigidbody.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
                 wallJumpingCouter = 0;
-                dobleJump = false;
+
 
 
                 if (transform.localScale.x != wallJumpingDirection)
