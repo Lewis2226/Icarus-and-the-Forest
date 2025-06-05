@@ -1,5 +1,5 @@
-
 using UnityEngine;
+using System.IO.Ports;
 
 
 public class PlayerController : MonoBehaviour
@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour
     //Otras
     public float radius;
 
+    //Arduino
+    SerialPort serial = new SerialPort("COM7", 9600);
+
 
 
     private void Awake() //Se toman los componentes necesarios
@@ -67,18 +70,61 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
          orginalGravity = _rigidbody.gravityScale;
+         serial.Open();
+         serial.ReadTimeout = 50;
+        
     }
 
     void Update()
     {
-        
-        
+        if (!serial.IsOpen) return;
 
-        //Registar el Movimiento 
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        try
+        {
+            string line = serial.ReadLine().Trim();
+            string[] parts = line.Split(',');
+
+            if (parts.Length == 2)
+            {
+                int potValue = int.Parse(parts[0]);
+                int jumpPressed = int.Parse(parts[1]);
 
 
-         
+                float horizontal = Mathf.Lerp(-1f, 1f, potValue / 1023f);
+                horizontalInput = horizontal;
+                Debug.Log(jumpPressed);
+
+                if (jumpPressed == 1)
+                {
+                    Debug.Log("Se puede saltar");
+                    if (_isGrounded)
+                    {
+                        Jump();
+
+                    }
+
+                    //Coyote time
+                    if (coyoteTimeCounter > 0)
+                    {
+                        Jump();
+                    }
+
+                    //Doble salto
+                    else if (!dobleJump)
+                    {
+                        _animator.SetBool("DobleJump", true);
+                        dobleJump = true;
+                        Jump();
+                    }
+
+                }
+            }
+
+            
+
+        }
+        catch (System.Exception) { }
+
 
         _movement = new Vector2(horizontalInput, 0);
 
@@ -93,38 +139,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        //Salto
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (_isGrounded)
-            {
-                Jump();
-
-            }
-
-            //Coyote time
-            if (coyoteTimeCounter > 0)
-            {
-                Jump();
-            }
-
-            //Doble salto
-            else if (!dobleJump)
-            {
-                _animator.SetBool("DobleJump", true);
-                dobleJump = true;
-                Jump();
-            }
-        }
-
-        
-       
-        
-
-            if (Input.GetButtonUp("Jump"))
-            {
-              Jump();
-            }
             //Deslizamiento en pared 
             WallSlide();
             //Salto en pared
