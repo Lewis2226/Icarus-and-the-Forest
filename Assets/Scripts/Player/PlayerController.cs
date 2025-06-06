@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
     //Referencias
     private Rigidbody2D _rigidbody;
     private Animator _animator;
-    public TrailRenderer trailRenderer;
 
     //Movimiento 
     private Vector2 _movement;
