@@ -12,8 +12,9 @@ public class LevelChange : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            MenuWin.SetActive(true);
             collision.gameObject.SetActive(false);
+            MenuWin.SetActive(true);
+            
         } 
     }
     public void NextLevel()

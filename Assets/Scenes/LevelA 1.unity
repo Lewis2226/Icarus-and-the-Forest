@@ -335,6 +335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nigthly Caged(Meta)
       objectReference: {fileID: 0}
+    - target: {fileID: 2812818231401010362, guid: 3bc563e9a59e29041b2c4e387d709f3a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
