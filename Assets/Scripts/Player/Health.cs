@@ -69,14 +69,15 @@ public class Health : MonoBehaviour
 
     public void Dead(bool isDead)
     {
-      gameOver.SetActive(true);
+    
       transform.position = respawnPoint.position;
       transform.localScale = new Vector3(1, 1, 1);
       playerController._facingRight = true;
       waitTime = maxWaitTime;
       GetComponent<BoxCollider2D>().enabled = !isDead;
       GetComponent<SpriteRenderer>().enabled = !isDead;
-      
+      gameOver.SetActive(true);
+
     } 
 
     public void Revival() 

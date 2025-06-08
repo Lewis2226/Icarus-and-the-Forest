@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     public float radius;
 
     //Arduino
-    SerialPort serial = new SerialPort("COM7", 115200);
+    SerialPort serial = new SerialPort("COM7", 230400);
 
 
 
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
                 int jumpPressed = int.Parse(parts[1]);
 
 
-                float horizontal = Mathf.Lerp(-1f, 1f, potValue / 674f);
+                float horizontal = Mathf.Lerp(-1f, 1f, potValue / 670f);
                 horizontalInput = horizontal;
 
                 if (jumpPressed == 1)
@@ -117,8 +117,6 @@ public class PlayerController : MonoBehaviour
 
             //Deslizamiento en pared 
             WallSlide();
-            //Salto en pared
-            WallJump();
 
 
 
@@ -213,46 +211,6 @@ public class PlayerController : MonoBehaviour
               _rigidbody.gravityScale = orginalGravity;
             }
             
-        }
-
-        //Salto en pared
-        private void WallJump()
-        {
-            if (isWallSlide)
-            {
-                isWallJumping = false;
-                wallJumpingDirection = -transform.localScale.x;
-                wallJumpingCouter = wallJumpingTime;
-                CancelInvoke("StopWallJumping");
-            }
-            else
-            {
-                wallJumpingCouter -= Time.deltaTime;
-            }
-
-            if (Input.GetButtonDown("Jump") && wallJumpingCouter > 0)
-            {
-                isWallJumping = true;
-                _rigidbody.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
-                wallJumpingCouter = 0;
-
-
-
-                if (transform.localScale.x != wallJumpingDirection)
-                {
-                    _facingRight = !_facingRight;
-                    Vector3 localScale = transform.localScale;
-                    localScale.x *= -1;
-                    transform.localScale = localScale;
-                }
-                Invoke("StopWallJumping", wallJumpingDuration);
-
-            }
-        }
-
-        private void StopWallJumping()
-        {
-            isWallJumping = false;
         }
 } 
 
