@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
                 int potValue = int.Parse(parts[0]);
                 int jumpPressed = int.Parse(parts[1]);
 
-
+                
                 float horizontal = Mathf.Lerp(-1f, 1f, potValue / 670f);
                 horizontalInput = horizontal;
 
