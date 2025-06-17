@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     public float radius;
 
     //Arduino
-    SerialPort serial = new SerialPort("COM7", 230400);
+    SerialPort serial = new SerialPort("COM8", 230400);
 
 
 
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
                 int jumpPressed = int.Parse(parts[1]);
 
                 
-                float horizontal = Mathf.Lerp(-1f, 1f, potValue / 670f);
+                float horizontal = Mathf.Lerp(-1f, 1f, potValue / 1021f);
                 horizontalInput = horizontal;
 
                 if (jumpPressed == 1)
